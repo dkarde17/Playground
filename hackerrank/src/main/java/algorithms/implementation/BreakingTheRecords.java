@@ -15,21 +15,26 @@ public class BreakingTheRecords {
         int minS, maxS;
         minS = maxS = score[0];
         for(int i = 1; i < score.length; i++) {
-            if(score[i] > maxS)
+            if(score[i] > maxS){
                 recordBreakingRecord[0]++;
-            if(score[i] < minS)
+                maxS = score[i];
+            }
+            if(score[i] < minS){
                 recordBreakingRecord[1]++;
+                minS = score[i];
+            }
         }
         return recordBreakingRecord;
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        /*Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] score = new int[n];
         for(int score_i = 0; score_i < n; score_i++){
             score[score_i] = in.nextInt();
-        }
+        }*/
+        int[] score = {10,5,20,20,4,5,2,25,1};
         int[] result = breakingRecords(score);
         for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + (i != result.length - 1 ? " " : ""));
@@ -37,6 +42,6 @@ public class BreakingTheRecords {
         System.out.println("");
 
 
-        in.close();
+//        in.close();
     }
 }
