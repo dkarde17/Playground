@@ -69,3 +69,6 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 /.idea/
+/**/*.iml
+/**/target/
+/**/play-with-java/

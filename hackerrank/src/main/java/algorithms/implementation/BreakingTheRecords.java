@@ -1,9 +1,4 @@
 package algorithms.implementation;
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 /**
  * https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem

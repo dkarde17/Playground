@@ -1,0 +1,9 @@
+10
+#use union function to join two nodes
+#use find function to check whether two nodes are connected
+union(0,9)
+union(1,7)
+find(0,9)
+find(1,9)
+union(7,9)
+find(1,9)
