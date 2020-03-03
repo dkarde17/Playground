@@ -53,7 +53,7 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 ### Gradle template
-.gradle
+
 /build/
 
 # Ignore Gradle GUI config
@@ -67,7 +67,7 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
-
+.gradle/
 /.idea/
 /**/*.iml
 /**/target/

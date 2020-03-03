@@ -1,4 +1,5 @@
 rootProject.name = 'Playground'
 include 'play-with-java'
 include 'hackerrank'
+include 'leetcode'
 
