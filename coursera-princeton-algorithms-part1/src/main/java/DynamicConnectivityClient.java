@@ -24,8 +24,14 @@ public class DynamicConnectivityClient {
         }
 
         try {
+            String type = fileReader.readLine();
+            UFType ufType = UFType.ofValue(type);
+            if (ufType == null) {
+                throw new IllegalStateException("Union Find type cannot be of : " + type);
+            }
             int numberOfNodes = Integer.parseInt((fileReader.readLine()));
-            UnionFInd quickFindUF = new QuickFindUF(numberOfNodes);
+            UnionFind quickFindUF = ufType.getUF(numberOfNodes);
+
             AtomicIntegerArray arguments = new AtomicIntegerArray(2);
             fileReader.lines().forEach( x ->{
                 if (x.startsWith("#"))

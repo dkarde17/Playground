@@ -1,4 +1,7 @@
+QU
 10
+#1st line is the type of union find -> QU for Quick Union and QF for Quick Find
+#Second line is the number of elements
 #use union function to join two nodes
 #use find function to check whether two nodes are connected
 union(0,9)

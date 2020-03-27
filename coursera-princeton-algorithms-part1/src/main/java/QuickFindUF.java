@@ -1,4 +1,4 @@
-public class QuickFindUF extends UnionFInd{
+public class QuickFindUF extends UnionFind {
     private int[] id;
     public QuickFindUF(int n) {
         id = new int[n];
