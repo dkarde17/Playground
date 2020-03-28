@@ -1,6 +1,7 @@
 public enum UFType {
     QUICK_FIND("QF"),
     QUICK_UNION("QU"),
+    WEIGHTED_QUICK_UNION("WQU")
     ;
 
     String value;
@@ -29,6 +30,9 @@ public enum UFType {
                 break;
             case "QU":
                 unionFind = new QuickUnionUF(numberOfNodes);
+                break;
+            case "WQU":
+                unionFind = new WeightedQuickUnionUF(numberOfNodes);
                 break;
             default:
                 throw new IllegalStateException("invalid type of value = " + value);

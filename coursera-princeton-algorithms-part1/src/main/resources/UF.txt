@@ -1,4 +1,4 @@
-QU
+WQU
 10
 #1st line is the type of union find -> QU for Quick Union and QF for Quick Find
 #Second line is the number of elements
