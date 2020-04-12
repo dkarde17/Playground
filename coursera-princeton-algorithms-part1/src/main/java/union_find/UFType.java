@@ -1,3 +1,5 @@
+package union_find;
+
 public enum UFType {
     QUICK_FIND("QF"),
     QUICK_UNION("QU"),
