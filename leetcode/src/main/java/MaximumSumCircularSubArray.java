@@ -50,43 +50,65 @@
  * 1 <= A.length <= 30000
  */
 public class MaximumSumCircularSubArray {
+    //use kadane's algo to get the maximum sum in the non-circular part of the array
+    //calculate the prefix sum
+    //calculate the suffix sum
+    //choose the max of prefix sum and suffix sum and kadane's algo result
     public int maxSubarraySumCircular(int[] A) {
-        //TODO: complete this solution
-        int maximumSum = A[0], currentSum = A[0];
-        int start = 0, end = 0;
-        int n = A.length;
-        for (int i = 1; i <  2 * n; i++) {
-            int index = i % A.length;
-            if (i >= n && index == start && end != start) {
-                currentSum -= A[start];
-                start += i;
-                if (currentSum > maximumSum) {
-                    maximumSum = currentSum;
-                }
-            }
-            if (currentSum < 0) {
-                if (A[index] > currentSum) {
-                    currentSum = A[index];
-                    start = i;
-                    end=i;
-                    if (currentSum > maximumSum) {
-                        maximumSum = currentSum;
-                    }
-                }
-            } else {
-                currentSum += A[index];
-                if (currentSum >= maximumSum) {
-                    maximumSum = currentSum;
-                    end = i;
-                }
-            }
+        int res = A[0];
+        int currRes = A[0];
+        for(int i = 1; i < A.length; i++) {
+            currRes += A[i];
+            currRes = Math.max(currRes, A[i]);
+            res = Math.max(res, currRes);
         }
-        return maximumSum;
+        int[] maxPrefixSum = new int[A.length];
+        maxPrefixSum[0] = A[0];
+        int currPrefixSum = A[0];
+        int[] maxSuffixSum = new int[A.length];
+        maxSuffixSum[A.length - 1] = A[A.length - 1];
+        int currSuffixSum = A[A.length - 1];
+        for(int i = 1; i < A.length; i++) {
+            currPrefixSum += A[i];
+            maxPrefixSum[i] = Math.max(currPrefixSum, maxPrefixSum[i - 1]);
+            currSuffixSum += A[A.length - i - 1];
+            maxSuffixSum[A.length - i - 1] = Math.max(currSuffixSum, maxSuffixSum[A.length - 1]);
+        }
+        for(int i = 0; i < A.length - 2; i++)
+            res = Math.max(res, maxPrefixSum[i] + maxSuffixSum[i + 2]);
+        return res;
     }
 
     public static void main(String[] args) {
         MaximumSumCircularSubArray maximumSumCircularSubArray = new MaximumSumCircularSubArray();
-        int[] A = {5, -3, 5};
-        System.out.println(maximumSumCircularSubArray.maxSubarraySumCircular(A));
+        int[] arr = {-2,4,-5,4,-5,9,4};
+        System.out.println(maximumSumCircularSubArray.maxSubarraySumCircular(arr));
     }
+
+    //2ms solution
+    /*
+    public int maxSubarraySumCircular(int[] array) {
+        int acc = 0;
+        int max1 = kadane(array);
+        for(int i = 0; i < array.length; i++) {
+            acc += array[i];
+            array[i] = -array[i];
+        }
+        int min = kadane(array);
+        int max2 = acc + min;
+        if(max2 == 0) {
+            return max1;
+        }
+        return Math.max(max1, max2);
+    }
+    public int kadane(int[] array) {
+        int maxTillI = array[0];
+        int max = array[0];
+        for(int i = 1; i < array.length; i++) {
+            maxTillI = Math.max(maxTillI+array[i], array[i]);
+            max = Math.max(max, maxTillI);
+        }
+        return max;
+    }
+     */
 }
