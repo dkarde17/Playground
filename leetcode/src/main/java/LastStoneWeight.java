@@ -30,7 +30,8 @@ import java.util.PriorityQueue;
  */
 public class LastStoneWeight {
     public int lastStoneWeight(int[] stones) {
-        //TODO: read Heap
+        //TODO: read Heap;
+
         if (stones == null)
             return 0;
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<Integer>(Collections.reverseOrder());
