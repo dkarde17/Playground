@@ -55,4 +55,25 @@ public class CheckIfAStringContainsAllBinaryCodesOfSizeK {
         CheckIfAStringContainsAllBinaryCodesOfSizeK checkIfAStringContainsAllBinaryCodesOfSizeK = new CheckIfAStringContainsAllBinaryCodesOfSizeK();
         System.out.println(checkIfAStringContainsAllBinaryCodesOfSizeK.hasAllCodes("00110", 2));
     }
+    
+    //TODO understand the following solution
+    /*
+     public boolean hasAllCodes(String s, int k) {
+        if(s.length() < k + (1 << k) - 1) return false;
+
+        boolean[] set = new boolean[1 << k];
+        int n = 0, mask = (1 << k) - 1, count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            n = (n<<1 & mask) | s.charAt(i) - '0';
+            if(i >= k-1 && !set[n]) {
+                set[n] = true;
+                count++;
+                if(count == set.length) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+     */
 }
