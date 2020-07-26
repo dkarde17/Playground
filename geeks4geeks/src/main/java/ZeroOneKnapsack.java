@@ -75,7 +75,7 @@ public class ZeroOneKnapsack {
             for (int j = 1; j <= n; j++) {
                 for (int k = 1; k <= w; k++) {
                     if (wt[j - 1] <= k)
-                        bottomUpDPTable[j][k] = Math.max(val[n - 1] + bottomUpDPTable[j - 1][k - wt[n - 1]], bottomUpDPTable[j - 1][k]);
+                        bottomUpDPTable[j][k] = Math.max(val[j - 1] + bottomUpDPTable[j - 1][k - wt[j - 1]], bottomUpDPTable[j - 1][k]);
                     else bottomUpDPTable[j][k] = bottomUpDPTable[j - 1][k];
                 }
             }
@@ -99,7 +99,7 @@ public class ZeroOneKnapsack {
             if (wt[n - 1] <= w)
                 memoizationTable[n][w] = Math.max(val[n - 1] + findMaxValForWMemoized(n - 1, w - wt[n - 1], val, wt, memoizationTable),
                         findMaxValForWMemoized(n - 1, w, val, wt, memoizationTable));
-            else memoizationTable[n][w] = findMaxValForWRecursion(n - 1, w, val, wt);
+            else memoizationTable[n][w] = findMaxValForWMemoized(n - 1, w, val, wt, memoizationTable);
         }
         return memoizationTable[n][w];
     }
