@@ -3,4 +3,6 @@ include 'play-with-java'
 include 'hackerrank'
 include 'leetcode'
 include 'algo-implementation'
+include 'geeks4geeks'
+include 'practice'
 
