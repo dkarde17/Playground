@@ -1,3 +1,5 @@
+import util.TreeNode;
+
 /**
  * https://leetcode.com/explore/featured/card/may-leetcoding-challenge/537/week-4-may-22nd-may-28th/3339/
  *
@@ -47,15 +49,5 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
             }
         }
         return null;
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

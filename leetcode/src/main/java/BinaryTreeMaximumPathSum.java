@@ -1,3 +1,5 @@
+import util.TreeNode;
+
 /**
  * Given a non-empty binary tree, find the maximum path sum.
  * <p>
@@ -51,24 +53,5 @@ public class BinaryTreeMaximumPathSum {
         treeNode.right = new TreeNode(-3);
         BinaryTreeMaximumPathSum binaryTreeMaximumPathSum = new BinaryTreeMaximumPathSum();
         System.out.println(binaryTreeMaximumPathSum.maxPathSum(treeNode));
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

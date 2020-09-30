@@ -1,3 +1,5 @@
+import util.TreeNode;
+
 /**
  * In a binary tree, the root node is at depth 0, and children of each depth k node are at depth k+1.
  * <p>
@@ -60,22 +62,4 @@ public class CousinsInBinaryTree {
         dfs(root.right, x, y, depth + 1, root.val);
     }
 
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }

@@ -1,3 +1,5 @@
+import util.TreeNode;
+
 /**
  * Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
  * <p>
@@ -60,22 +62,5 @@ public class CountGoodNodesInBinaryTree {
         System.out.println(countGoodNodesInBinaryTree.goodNodes(root));
     }
 
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 }
