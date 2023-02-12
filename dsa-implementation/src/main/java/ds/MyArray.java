@@ -1,5 +1,57 @@
 package ds;
 
-public class Array {
-    
+import java.util.HashMap;
+import java.util.Map;
+
+public class MyArray {
+    private final Map<Integer, String> data;
+    private int length;
+
+    public MyArray() {
+        this.length = 0;
+        this.data = new HashMap<>();
+    }
+
+    public void push(String value) {
+        data.put(length++, value);
+    }
+
+    public String pop() {
+        return data.remove(--length);
+    }
+
+    public String delete(int index) {
+        String deletedValue = data.get(index);
+        shiftDataLeft(index);
+        data.remove(--length);
+        return deletedValue;
+    }
+
+    /**
+     * shift data to left
+     * @param index
+     */
+    private void shiftDataLeft(int index) {
+        for(int i = index; i < length - 1; i++) {
+            data.put(i, data.get(i + 1));
+        }
+    }
+
+    public void insert(int index, String value) {
+        shiftDataRight(index);
+        data.put(index, value);
+    }
+
+    private void shiftDataRight(int index) {
+        for(int i = length; i > index; i--)
+            data.put(i, data.get(i - 1));
+        length++;
+    }
+
+    public void print() {
+        System.out.println("Length of the Array = " + length);
+        for (int i = 0; i < length; i++) {
+            System.out.printf("key : %d :: value : %s\n", i, data.get(i));
+        }
+    }
 }
