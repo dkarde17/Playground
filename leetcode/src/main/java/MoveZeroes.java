@@ -21,6 +21,27 @@ public class MoveZeroes {
         }
     }
 
+    /**
+     * Sliding window is more easily observable in this way
+     * @param nums
+     */
+    public void moveZeroes2(int[] nums) {
+        int zeroCount = 0;
+        int lastZeroIndex = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if( nums[i] != 0 && zeroCount > 0) {
+                nums[lastZeroIndex++] = nums[i];
+                nums[i] = 0; //lazy swap, just making it 0
+                zeroCount--;
+            }
+            if( nums[i] == 0 ) {
+                if(zeroCount == 0)
+                    lastZeroIndex = i;
+                zeroCount++;
+            }
+        }
+    }
+
     public void swap(int[] nums, int i, int j) {
         if(i == j)
             return;
