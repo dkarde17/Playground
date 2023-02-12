@@ -3,19 +3,17 @@ import java.util.Map;
 
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        Map<Integer, Integer> alreadyPresent = new HashMap<>();
-        for(int i = 0; i < nums.length; i++) {
-            int n = nums[i];
-            if(alreadyPresent.containsKey(target-n)) {
-                result[0] = alreadyPresent.get(target-n);
-                result[1] = i;
+        int[] res = new int[2];
+        Map<Integer, Integer> hash = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int diff = target - nums[i];
+            if(hash.containsKey(diff)) {
+                res[0] = i;
+                res[1] = hash.get(diff);
                 break;
-            } else {
-                alreadyPresent.put(n, i);
-            }
+            } else hash.put(nums[i], i);
         }
-        return result;
+        return res;
     }
 
     public static void main(String[] args) {
