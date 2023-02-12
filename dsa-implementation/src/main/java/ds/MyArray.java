@@ -1,5 +1,6 @@
 package ds;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,10 +30,11 @@ public class MyArray {
 
     /**
      * shift data to left
+     *
      * @param index
      */
     private void shiftDataLeft(int index) {
-        for(int i = index; i < length - 1; i++) {
+        for (int i = index; i < length - 1; i++) {
             data.put(i, data.get(i + 1));
         }
     }
@@ -43,15 +45,17 @@ public class MyArray {
     }
 
     private void shiftDataRight(int index) {
-        for(int i = length; i > index; i--)
+        for (int i = length; i > index; i--)
             data.put(i, data.get(i - 1));
         length++;
     }
 
     public void print() {
         System.out.println("Length of the Array = " + length);
-        for (int i = 0; i < length; i++) {
-            System.out.printf("key : %d :: value : %s\n", i, data.get(i));
-        }
+        this.data.entrySet().stream().sorted(
+                Comparator.comparingInt(Map.Entry::getKey)).forEach(
+                        integerStringEntry ->
+                                System.out.printf("key : %d :: value : %s\n",
+                                        integerStringEntry.getKey(), integerStringEntry.getValue()));
     }
 }
