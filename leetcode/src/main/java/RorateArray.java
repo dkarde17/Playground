@@ -37,6 +37,18 @@
  * https://leetcode.com/problems/rotate-array/description/
  */
 public class RorateArray {
+    /**
+     * 1 shuffle = 1 whole reverse + 2 individual part reverses
+     * for e.g.
+     * rotate +++>==> 3 times to the right, final answer will look like ==>+++>
+     * this is like the last 3 characters were shuffled to the front
+     * so, we can also solve it with 3 reverses:
+     * reverse whole <==<+++
+     * reverse 1st part ==><+++
+     * reverse 2nd part ==>+++>
+     * @param nums
+     * @param k
+     */
     public void rotate(int[] nums, int k) {
         k = k%nums.length;
         int left = 0;
@@ -56,5 +68,38 @@ public class RorateArray {
         int temp = nums[left];
         nums[left] = nums[right];
         nums[right] = temp;
+    }
+
+    /**
+     * starting with 1 index we cycle through the array moving each element
+     * to its respective future index after k rotations i.e. (i + k)%n
+     *But it may result in reaching the same index again and getting stuck in
+     *  a cycle.
+     *
+     * @param nums
+     * @param k
+     */
+    public void rotate2(int[] nums, int k) {
+        int n = nums.length;
+        k%=n;
+        int totalLoops = gcd(n, k);
+        while(totalLoops > 0) {
+            //cycle through the array
+            int i = totalLoops - 1;
+            int next = (i + k)%n;
+            int last = nums[i];
+            while (i != next) {
+                int temp = nums[next];
+                nums[next] = last;
+                last = temp;
+                next = (next + k) % n;
+            }
+            nums[next] = last;
+            totalLoops--;
+        }
+    }
+
+    private int gcd(int x, int y) {
+        return y == 0? x : gcd(y, x%y);
     }
 }
