@@ -30,7 +30,7 @@ public class Main {
         System.out.println(myDoublyLinkedList.size());
         System.out.println("*****");
 
-        myDoublyLinkedList.insert(1, 23);
+        myDoublyLinkedList.insert(0, 23);
         myDoublyLinkedList.print();
         System.out.println(myDoublyLinkedList.size());
     }

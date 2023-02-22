@@ -28,22 +28,24 @@ public class MyDoublyLinkedList<T> {
     }
 
     public void insert(int index, T value) {
-        int i = 0;
-        Node node = head;
-        Node prevNode = null;
-        while(i < index) {
-            prevNode = node;
-            node = node.next;
-            i++;
+        if (index == 0) {
+            addAtHead(value);
+        } else {
+            int i = 0;
+            Node node = head;
+            Node prevNode = null;
+            while (i < index) {
+                prevNode = node;
+                node = node.next;
+                i++;
+            }
+            Node newNode = new Node(value, prevNode, node);
+            node.prev = newNode;
+            if (prevNode != null) {
+                prevNode.next = newNode;
+            }
+            size++;
         }
-        Node newNode = new Node(value, prevNode, node);
-        node.prev = newNode;
-        if (prevNode != null) {
-            prevNode.next = newNode;
-        }
-        if (i == 0)
-            head = newNode;
-        size++;
     }
 
     public T delete(int index) {

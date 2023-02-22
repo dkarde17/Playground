@@ -55,21 +55,25 @@ public class MyLinkedList<T> {
     }
 
     public void insert(int index, T value) {
-        Node node = head;
-        Node prevNode = null;
-        int i = 0;
-        while (i < index) {
-            prevNode = node;
-            node = node.next;
-            i++;
+        if (index == 0) {
+            addHead(value);
+        } else {
+            Node node = head;
+            Node prevNode = null;
+            int i = 0;
+            while (i < index) {
+                prevNode = node;
+                node = node.next;
+                i++;
+            }
+            Node newNode = new Node(value, node);
+            if (prevNode != null) {
+                prevNode.next = newNode;
+            }
+            if (i == 0)
+                head = newNode;
+            size++;
         }
-        Node newNode = new Node(value, node);
-        if (prevNode != null) {
-            prevNode.next = newNode;
-        }
-        if (i == 0)
-            head = newNode;
-        size++;
     }
 
     public void print() {
