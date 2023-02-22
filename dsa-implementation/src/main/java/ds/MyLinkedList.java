@@ -11,10 +11,16 @@ public class MyLinkedList<T> {
         this.tail = head;
     }
 
-    public void add(T value) {
+    public void addTail(T value) {
         tail.next = new Node(value, null);
         size++;
         tail = tail.next;
+    }
+
+    public void addHead(T value) {
+        Node node = new Node(value, head);
+        size++;
+        head = node;
     }
 
     public T get(int index) {
@@ -29,7 +35,7 @@ public class MyLinkedList<T> {
         return result != null ? result.value : null;
     }
 
-    public Node delete(int index) {
+    public T delete(int index) {
         Node result = null;
         int i = 0;
         Node node = head;
@@ -42,7 +48,7 @@ public class MyLinkedList<T> {
         prevNode.next = node.next;
         node.next = null;
         result = node;
-        return node;
+        return result != null ? result.value : null;
     }
 
     public void print() {

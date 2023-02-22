@@ -1,6 +1,5 @@
 package main;
 
-import ds.MyHashTable;
 import ds.MyLinkedList;
 
 public class Main {
@@ -9,8 +8,8 @@ public class Main {
         myLinkedList.print();
         System.out.println("*****");
 
-        myLinkedList.add(3);
-        myLinkedList.add(6);
+        myLinkedList.addTail(3);
+        myLinkedList.addTail(6);
         myLinkedList.print();
         System.out.println("*****");
 
@@ -20,6 +19,10 @@ public class Main {
 
         myLinkedList.delete(1);
 
+        myLinkedList.print();
+        System.out.println("*****");
+
+        myLinkedList.addHead(67);
         myLinkedList.print();
 
     }
