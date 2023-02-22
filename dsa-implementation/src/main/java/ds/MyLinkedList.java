@@ -64,7 +64,11 @@ public class MyLinkedList<T> {
             i++;
         }
         Node newNode = new Node(value, node);
-        prevNode.next = newNode;
+        if (prevNode != null) {
+            prevNode.next = newNode;
+        }
+        if (i == 0)
+            head = newNode;
         size++;
     }
 
