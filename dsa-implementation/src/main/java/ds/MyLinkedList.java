@@ -45,10 +45,27 @@ public class MyLinkedList<T> {
             node = node.next;
             i++;
         }
-        prevNode.next = node.next;
+        if (prevNode != null) {
+            prevNode.next = node.next;
+        }
+        size--;
         node.next = null;
         result = node;
         return result != null ? result.value : null;
+    }
+
+    public void insert(int index, T value) {
+        Node node = head;
+        Node prevNode = null;
+        int i = 0;
+        while (i < index) {
+            prevNode = node;
+            node = node.next;
+            i++;
+        }
+        Node newNode = new Node(value, node);
+        prevNode.next = newNode;
+        size++;
     }
 
     public void print() {

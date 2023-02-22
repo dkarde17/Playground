@@ -24,6 +24,12 @@ public class Main {
 
         myLinkedList.addHead(67);
         myLinkedList.print();
+        System.out.println("*****");
+        System.out.println(myLinkedList.size());
+        System.out.println("*****");
 
+        myLinkedList.insert(1, 23);
+        myLinkedList.print();
+        System.out.println(myLinkedList.size());
     }
 }
