@@ -1,31 +1,26 @@
 package main;
 
 import ds.MyHashTable;
+import ds.MyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        MyHashTable myHashTable = new MyHashTable(5);
-        System.out.println("*******");
-        myHashTable.printHashTable();
-        System.out.println("*******");
-
-        myHashTable.set("xa", "divye");
-        myHashTable.set("wanchi", "yesh");
-        myHashTable.printHashTable();
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>(10);
+        myLinkedList.print();
         System.out.println("*****");
 
-        myHashTable.set("wakanda", "forever");
+        myLinkedList.add(3);
+        myLinkedList.add(6);
+        myLinkedList.print();
+        System.out.println("*****");
 
-        System.out.println("value of key xa = " + myHashTable.get("xa"));
+        System.out.println(myLinkedList.get(2));
 
         System.out.println("*****");
 
-        myHashTable.set("thisis" ,"sparta");
-        myHashTable.set("phir", "hera pheri");
-        myHashTable.set("collission", "pakka hua");
-        myHashTable.printHashTable();
+        myLinkedList.delete(1);
 
-        System.out.println("*******");
-        System.out.println(myHashTable.keys().toString());
+        myLinkedList.print();
+
     }
 }
