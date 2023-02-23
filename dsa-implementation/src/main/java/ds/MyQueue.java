@@ -50,13 +50,13 @@ public class MyQueue<T> {
     }
 
     public void print() {
-        System.out.print("start --> ");
+        System.out.print("//start// --> ");
         Node<T> node = this.start;
         while (node != null) {
             System.out.print(node.value + " --> ");
             node = node.next;
         }
-        System.out.println("end");
+        System.out.println("//end//");
     }
 
     private class Node<S> {

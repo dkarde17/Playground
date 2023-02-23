@@ -24,6 +24,8 @@ public class Main {
         breakLine();
 
         System.out.println(myQueue.size());
+        breakLine();
+        System.out.println(myQueue.peek());
 
     }
 
