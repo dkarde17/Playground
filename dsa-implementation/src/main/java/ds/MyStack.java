@@ -27,6 +27,9 @@ public class MyStack<T> {
     public T pop() {
         if (size == 0)
             return null;
+        if (this.top == this.bottom) {
+            this.bottom =  null;
+        }
         Node<T> node = top;
         top = top.next;
         node.next = null;
