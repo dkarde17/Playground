@@ -2,27 +2,29 @@ package main;
 
 import ds.MyDoublyLinkedList;
 import ds.MyLinkedList;
+import ds.MyQueue;
 import ds.MyStack;
 
 public class Main {
     public static void main(String[] args) {
-        MyStack<Integer> myStack = new MyStack<>(10);
-        myStack.print();
+        MyQueue<String> myQueue = new MyQueue<>("This");
+        myQueue.print();
         breakLine();
 
-        myStack.push(5);
-        myStack.push(2);
-        myStack.print();
+        myQueue.enqueue("is");
+        myQueue.enqueue("Sparta!");
+        myQueue.enqueue("!!!");
+        myQueue.enqueue("!!!");
+        myQueue.print();
         breakLine();
 
-        System.out.println(myStack.peek());
+        System.out.println(myQueue.dequeue());
+        System.out.println(myQueue.dequeue());
+        myQueue.print();
         breakLine();
 
-        myStack.pop();
-        myStack.print();
-        breakLine();
+        System.out.println(myQueue.size());
 
-        System.out.println(myStack.size());
     }
 
     private static void breakLine() {
