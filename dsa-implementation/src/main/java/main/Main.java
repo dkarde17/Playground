@@ -2,36 +2,30 @@ package main;
 
 import ds.MyDoublyLinkedList;
 import ds.MyLinkedList;
+import ds.MyStack;
 
 public class Main {
     public static void main(String[] args) {
-        MyDoublyLinkedList<Integer> myDoublyLinkedList =
-                new MyDoublyLinkedList<>(10);
-        myDoublyLinkedList.print();
+        MyStack<Integer> myStack = new MyStack<>(10);
+        myStack.print();
+        breakLine();
+
+        myStack.push(5);
+        myStack.push(2);
+        myStack.print();
+        breakLine();
+
+        System.out.println(myStack.peek());
+        breakLine();
+
+        myStack.pop();
+        myStack.print();
+        breakLine();
+
+        System.out.println(myStack.size());
+    }
+
+    private static void breakLine() {
         System.out.println("*****");
-
-        myDoublyLinkedList.addAtTail(3);
-        myDoublyLinkedList.addAtTail(6);
-        myDoublyLinkedList.print();
-        System.out.println("*****");
-
-        System.out.println(myDoublyLinkedList.get(2));
-
-        System.out.println("*****");
-
-        myDoublyLinkedList.delete(1);
-
-        myDoublyLinkedList.print();
-        System.out.println("*****");
-
-        myDoublyLinkedList.addAtHead(67);
-        myDoublyLinkedList.print();
-        System.out.println("*****");
-        System.out.println(myDoublyLinkedList.size());
-        System.out.println("*****");
-
-        myDoublyLinkedList.insert(0, 23);
-        myDoublyLinkedList.print();
-        System.out.println(myDoublyLinkedList.size());
     }
 }
