@@ -1,5 +1,3 @@
-package util;
-
 /**
  * https://leetcode.com/problems/find-pivot-index/submissions/
  *
