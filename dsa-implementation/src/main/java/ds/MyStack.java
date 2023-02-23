@@ -29,6 +29,7 @@ public class MyStack<T> {
             return null;
         Node<T> node = top;
         top = top.next;
+        node.next = null;
         size--;
         return node.value;
     }
