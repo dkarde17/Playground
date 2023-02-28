@@ -1,31 +1,22 @@
 package main;
 
-import ds.MyDoublyLinkedList;
-import ds.MyLinkedList;
-import ds.MyQueue;
-import ds.MyStack;
+import ds.*;
 
 public class Main {
     public static void main(String[] args) {
-        MyQueue<String> myQueue = new MyQueue<>("This");
-        myQueue.print();
-        breakLine();
+        MyBST<Integer> bst = new MyBST<>();
+        bst.insert(10);
 
-        myQueue.enqueue("is");
-        myQueue.enqueue("Sparta!");
-        myQueue.enqueue("!!!");
-        myQueue.enqueue("!!!");
-        myQueue.print();
-        breakLine();
+        System.out.println("debug line");
 
-        System.out.println(myQueue.dequeue());
-        System.out.println(myQueue.dequeue());
-        myQueue.print();
-        breakLine();
+        bst.insert(5);
+        bst.insert(6);
+        bst.insert(15);
+        bst.insert(12);
+        bst.insert(16);
+//        bst.remove(10);
 
-        System.out.println(myQueue.size());
-        breakLine();
-        System.out.println(myQueue.peek());
+        System.out.println("debug line");
 
     }
 
