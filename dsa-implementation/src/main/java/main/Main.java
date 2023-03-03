@@ -4,20 +4,20 @@ import ds.*;
 
 public class Main {
     public static void main(String[] args) {
-        MyBST<Integer> bst = new MyBST<>();
-        bst.insert(10);
+        MyMaxHeap myMaxHeap = new MyMaxHeap(5);
+        myMaxHeap.insert(2);
+        myMaxHeap.insert(3);
+        myMaxHeap.insert(1);
+        myMaxHeap.insert(10);
+        myMaxHeap.insert(15);
 
-        System.out.println("debug line");
-
-        bst.insert(5);
-        bst.insert(6);
-        bst.insert(15);
-        bst.insert(12);
-        bst.insert(16);
-//        bst.remove(10);
-
-        System.out.println("debug line");
-
+        System.out.println(myMaxHeap.peek());
+        System.out.println(myMaxHeap.poll());
+        System.out.println(myMaxHeap.poll());
+        System.out.println(myMaxHeap.poll());
+        System.out.println(myMaxHeap.poll());
+        System.out.println(myMaxHeap.poll());
+        System.out.println(myMaxHeap.poll());
     }
 
     private static void breakLine() {
