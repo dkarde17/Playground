@@ -1,7 +1,5 @@
 package ds;
 
-import com.sun.imageio.plugins.common.SingleTileRenderedImage;
-
 public class MyMaxHeap {
 
     private final int capacity;
