@@ -36,6 +36,22 @@ public class BestTimeToBuyAndSellStock {
         return maxProfit;
     }
 
+    public int maxProfit2(int[] prices) {
+        if(prices == null || prices.length == 0 || prices.length == 1)
+            return 0;
+
+        int maxProfit = 0;
+        int minPrice = prices[0];
+        for(int i = 1; i < prices.length; i++) {
+            if(prices[i] - minPrice > maxProfit) {
+                maxProfit = prices[i] - minPrice;
+            }
+            if(prices[i] < minPrice)
+                minPrice = prices[i];
+        }
+        return maxProfit;
+    }
+
     /**
      * leetcode 100 percentile solution
      * @param prices
